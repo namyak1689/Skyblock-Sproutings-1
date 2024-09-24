@@ -1,20 +1,20 @@
 let modInfo = {
-	name: "The ??? Tree",
-	id: "mymod",
-	author: "nobody",
-	pointsName: "points",
+	name: "Skyblock Sproutings 1",
+	id: "Skyblock Sproutings 1",
+	author: "Kayman Selcho",
+	pointsName: "coins",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
 	initialStartPoints: new Decimal (10), // Used for hard resets and new players
-	offlineLimit: 1,  // In hours
+	offlineLimit: 1, //hours
 }
 
 // Set your version in num and name
 let VERSION = {
 	num: "0.0",
-	name: "Literally nothing",
+	name: "Starting from scratch",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -35,10 +35,11 @@ function getStartPoints(){
 // Determines if it should show points/sec
 function canGenPoints(){
 	return true
+	//don't need this until minions
 }
 
 // Calculate points/sec!
-function getPointGen() {
+function getPointGen() {//don't need until minions
 	if(!canGenPoints())
 		return new Decimal(0)
 
@@ -52,6 +53,7 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
+	
 ]
 
 // Determines when the game "ends"
