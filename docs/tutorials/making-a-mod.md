@@ -38,7 +38,7 @@ Given that, let's make our first upgrade! Insert this line in between the bracke
 
 ```js
         11: {
-
+            
         },
 ```
 

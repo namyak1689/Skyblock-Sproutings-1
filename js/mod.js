@@ -2,12 +2,12 @@ let modInfo = {
 	name: "Skyblock Sproutings 1",
 	id: "Skyblock Sproutings 1",
 	author: "Kayman Selcho",
-	pointsName: "coins",
+	pointsName: "Coins",
 	modFiles: ["layers.js", "tree.js"],
 
-	discordName: "",
+	discordName: "namyak1689",
 	discordLink: "",
-	initialStartPoints: new Decimal (10), // Used for hard resets and new players
+	initialStartPoints: new Decimal (0), // Used for hard resets and new players
 	offlineLimit: 1, //hours
 }
 
@@ -44,6 +44,7 @@ function getPointGen() {//don't need until minions
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
+	if(hasUpgrade("M", 1)) gain = gain.times(2);
 	return gain
 }
 

@@ -1,3 +1,4 @@
+/* 
 addLayer("p", {
     name: "prestige", // This is optional, only used in a few places, If absent it just uses the layer id.
     symbol: "P", // This appears on the layer's node. Default is the id with the first letter capitalized
@@ -6,7 +7,7 @@ addLayer("p", {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    color: "#4BDC13",
+    color: "#4BAC13",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
     resource: "prestige points", // Name of prestige currency
     baseResource: "points", // Name of resource prestige is based on
@@ -26,3 +27,56 @@ addLayer("p", {
     ],
     layerShown(){return true}
 })
+*/
+addLayer("Is", {//island
+    name: "First Island",
+    symbol: "Is",
+    position: 0,
+    startData() { return {
+        unlocked: true,
+		points: new Decimal(0),
+    }},
+    color: "#4BAC13",
+    requires: new Decimal(10), // Can be a function that takes requirement increases into account
+    resource: "health", // Name of prestige currency
+    baseResource: "points", // Name of resource prestige is based on
+    baseAmount() {return player.points}, // Get the current amount of baseResource
+    type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+    exponent: 0, // Prestige currency exponent
+    gainMult() { // Calculate the multiplier for main currency from bonuses
+        mult = new Decimal(1)
+        return mult
+    },
+    gainExp() { // Calculate the exponent on main currency from bonuses
+        return new Decimal(1)
+    },
+    row: 0,
+    layerShown(){return true}
+})
+
+addLayer("M", {//main island
+    name: "Main Island",
+    symbol: "M",
+    position: 1,
+    startData() { return {
+        unlocked: true,
+		points: new Decimal(0),
+    }},
+    color: "#FFF213",
+    requires: new Decimal(10),
+    resource: "health",
+    baseResource: "points",
+    baseAmount() {return player.points}, 
+    type: "resource",
+    upgrades: {
+        1:{
+            title: "Woah", 
+            description: "Built different",
+            cost: new Decimal(0),
+        }
+    },
+    row: 1,
+    layerShown(){return true}
+})
+
+
